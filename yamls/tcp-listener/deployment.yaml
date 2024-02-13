@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tcp-listener
+spec:
+  selector:
+    matchLabels:
+      app: tcp-listener
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tcp-listener
+    spec:
+      containers:
+        - name: tcp-listener
+          image: youregistry/tcp-listener:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8085
+              protocol: TCP
+          securityContext:
+            privileged: true             
+      imagePullSecrets:
+        - name: acrsecret
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 0      

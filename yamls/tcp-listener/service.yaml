@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tcp-listener
+spec:
+  ports:
+  - port: 8085
+    protocol: TCP
+    targetPort: 8085
+    name: tcp8085
+  selector:
+    app: tcp-listener

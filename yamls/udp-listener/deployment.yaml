@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udp-listener
+spec:
+  selector:
+    matchLabels:
+      app: udp-listener
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: udp-listener
+    spec:
+      containers:
+        - name: udp-listener
+          image: youregistry/udp-listener:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+              protocol: UDP
+          securityContext:
+            privileged: true             
+      imagePullSecrets:
+        - name: acrsecret
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 0      

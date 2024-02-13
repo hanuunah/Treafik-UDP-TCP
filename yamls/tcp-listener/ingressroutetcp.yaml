@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: tcp-listener
+spec:
+  entryPoints:
+  - tcp8085
+  routes:
+  - match: HostSNI(`*`)
+    services:
+    - name: tcp-listener
+      port: 8085
+      terminationDelay: 0

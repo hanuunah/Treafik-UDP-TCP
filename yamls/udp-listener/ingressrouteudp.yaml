@@ -1,0 +1,11 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteUDP
+metadata:
+  name: udp-listener
+spec:
+  entryPoints:
+  - udp
+  routes:
+  - services:
+    - name: udp-listener
+      port: 3000
