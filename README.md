@@ -3,7 +3,7 @@
 This repository contains detailed steps to configure and enable UDP and TCP ports in Traefik Ingress, facilitating traffic from external sources to the cluster through configured ports and protocols. By default, Traefik does not support this functionality, making this project essential for seamless UDP and TCP configuration.
 
 
-The POC involves researching and implementing how to enable TCP/UDP communication to the pods in the EdgeV2 Kubernetes (k8s) cluster from outside the EdgeV2 host system.
+The POC involves researching and implementing how to enable TCP/UDP communication to the pods in the  Kubernetes (k8s) cluster from outside the  host system.
 
 # Prerequisite
 
@@ -21,7 +21,7 @@ Entrypoint can be simply understood as listening ports, which by identifying whi
 
 We can enable TCP/UDP ports by adding new entry points to Traefik, and there are two ways to achieve this. One is through Helm charts, and the other is by updating the deployment and service YAML files of Traefik to include new entry points and port mappings.
 
-In this Proof of Concept (POC), I have utilized port 8085 for TCP and port 3000 for UDP communication within the EdgeV2 cluster
+In this Proof of Concept (POC), I have utilized port 8085 for TCP and port 3000 for UDP communication within the cluster
 
 ## New entry point(ports), with helm
 
@@ -132,7 +132,7 @@ The TCP app that I used for testing is available [here](https://github.com/hanuu
 - [Ingress](https://github.com/hanuunah/Treafik-UDP-TCP/blob/main//yamls/tcp-listener/ingress.yaml)
 
 
-# 3. Deploy UDP test app to EdgeV2 cluster
+# 3. Deploy UDP test app to  cluster
 
 The UDP app that I used for testing is available [here](https://github.com/hanuunah/Treafik-UDP-TCP/blob/main//apps/udp-listener)  and following are the yamls for deploying the app. Only difference from usual http apps are the ingress route where Traefik has sepaarte CRD for UDP ingress rules
 
